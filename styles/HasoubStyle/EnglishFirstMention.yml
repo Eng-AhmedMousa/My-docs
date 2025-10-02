@@ -1,0 +1,7 @@
+extends: substitution
+message: "أول ذكر للمصطلح بالإنجليزية لازم يكون بالعربية + (English): استخدم «%s»."
+level: warning
+ignorecase: true
+swap:
+  Authentication: "مصادقة (Authentication)"
+  Authorization: "تفويض (Authorization)"
