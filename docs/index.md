@@ -1,17 +1,16 @@
-# Welcome to MkDocs
+# مرحبًا بك في توثيق المشروع
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+هذا المستودع يقدّم توثيقًا تقنيًا مبسّطًا للمنتج، مع أمثلة واختبارات سريعة.
 
-## Commands
+:::info
+**نصيحة:** استخدم شريط البحث بالأعلى للعثور على الصفحات بسرعة.
+:::
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## البداية السريعة
+1. اطّلع على [دليل الـ API](API_Documentation_Reqres_in_AhmedMousa.md).
+2. راجع [الأسئلة الشائعة](faq.md).
+3. لو وجدت خطأ، افتح تذكرة على GitHub.
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## المساهمة
+- اتّبع دليل الأسلوب والـ Glossary داخل Confluence.
+- كل تعديل يمر عبر Pull Request.
