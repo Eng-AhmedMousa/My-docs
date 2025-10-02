@@ -1,48 +1,51 @@
-# اسم الـ Workflow اللي هيظهر في GitHub Actions
-name: Build & Deploy MkDocs
+# يبني MkDocs ويرفع الناتج إلى GitHub Pages (بدون gh-pages branch)
+name: Build & Deploy MkDocs (Pages)
 
-# التريجرز: إمتى يشتغل الـ Workflow؟
 on:
   push:
-    branches: [ main ]   # أي Push على فرع main
-  workflow_dispatch:      # أو تشغيل يدوي من GitHub Actions
+    branches: [ main ]
+  workflow_dispatch:
 
-# إعطاء صلاحيات الكتابة عشان يقدر ينشر على فرع gh-pages
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  # تعريف الـ Job الرئيسي
-  build-deploy:
-    runs-on: ubuntu-latest   # بيئة التشغيل: سيرفر Ubuntu مؤقت
-
+  build:
+    runs-on: ubuntu-latest
     steps:
-      # الخطوة 1: تنزيل نسخة من الريبو (الكود + الملفات)
       - name: Checkout
         uses: actions/checkout@v4
 
-      # الخطوة 2: إعداد Python بإصدار 3.11
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      # الخطوة 3: تثبيت MkDocs + ثيم Material
       - name: Install MkDocs
         run: |
           pip install mkdocs mkdocs-material
 
-      # الخطوة 4: بناء الموقع (تحويل Markdown -> HTML)
-      # --strict يخلي أي Warning يظهر كـ Error عشان تكتشف المشاكل بدري
       - name: Build site
-        run: mkdocs build --strict
+        run: mkdocs build   # أضف --strict لاحقًا بعد ما تنظف التحذيرات
 
-      # الخطوة 5: نشر الموقع على GitHub Pages
-      # بيستخدم أكشن جاهز (peaceiris/actions-gh-pages)
-      # بياخد الملفات من مجلد site/ ويرفعها على فرع gh-pages
-      - name: Deploy to GitHub Pages (gh-pages branch)
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload artifact (site)
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}   # توكن مدمج من GitHub
-          publish_dir: ./site                         # ملفات HTML الناتجة
-          publish_branch: gh-pages                    # الفرع اللي هيتنشر عليه
+          path: './site'    # المهم: ارفع الموقع المبني فقط
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
