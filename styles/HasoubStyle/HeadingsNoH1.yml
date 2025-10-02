@@ -1,0 +1,7 @@
+extends: existence
+message: "تجنّب H1 داخل الصفحة؛ ابدأ من H2 (##)."
+level: warning
+scope: heading
+raw: true
+tokens:
+  - '^#\s'
