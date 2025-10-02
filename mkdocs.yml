@@ -1,6 +1,21 @@
-site_name: My Docs
+site_name: Ahmed Mousa Docs
+site_description: توثيق مبدئي لمشروع حسوب
+site_author: Ahmed Mousa
+
+theme:
+  name: material
+  language: ar
+  direction: rtl
 
 nav:
   - الرئيسية: index.md
-  - الأسئلة الشائعة: API_Documentation_Reqres_in_AhmedMousa.md
+  - الأسئلة الشائعة: faq.md
   - API: API_Documentation_Reqres_in_AhmedMousa.md
+
+plugins:
+  - search
+
+extra:
+  analytics:
+    provider: google
+    property: G-5YZT4N3MPE
