@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>الأسئلة الشائعة - My Docs</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">My Docs</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">الرئيسية</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">الأسئلة الشائعة</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="./" class="nav-link active" aria-current="page">الأسئلة الشائعة</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="./" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" class="nav-link disabled">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#_1" class="nav-link">المحتويات</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p><strong>(API) <span dir="rtl">توثيـق واجهـات برمجـة التطبيقــات</span></strong></p>
+<p><strong><em>Reqres.in <span dir="rtl">والمصادقة باستخدام واجهة</span> CRUD
+<span dir="rtl">مثال توضيحي لعمليات</span></em></strong></p>
+<p><img alt="" src="../media/image1.jpeg" /></p>
+<p><strong><span dir="rtl">إعداد: أحمد موسي</span></strong><br />
+<strong><span dir="rtl">التاريخ: 2025/09/25</span></strong></p>
+<h1 id="_1"><span dir="rtl">المحتويات</span></h1>
+<ol>
+<li>
+<p><a href="#مقدمة"><strong><span dir="rtl">المقدمة</span></strong></a></p>
+</li>
+<li>
+<p><a href="#متطلبات"><strong><span dir="rtl">المتطلبات الأساسية</span></strong></a></p>
+</li>
+<li>
+<p>**<a href="#نظرةعامه"><span dir="rtl">نظرة عامة على واجهة</span>
+    Reqres.in</a>  **
+    3.1 <span dir="rtl"></span> <span dir="rtl"> <a href="#طبيعةوجهة">طبيعة الواجهة وحدود
+    الاستخدام</a></span></p>
+</li>
+</ol>
+<blockquote>
+<p><span dir="rtl">3.2 <a href="#افضلممارسات">أفضل ممارسات الاختبار</a></span></p>
+</blockquote>
+<ol>
+<li><a href="#المصادقة"><strong><span dir="rtl">المصادقة (</span>Authentication /
+    Login<span dir="rtl">)</span></strong></a></li>
+</ol>
+<blockquote>
+<p>** <strong>4</strong>.**1 <span dir="rtl"><a href="#هدفمصادقة">الهدف</a></span><br />
+ 4.2 <a href="#ارسالطلبتس"><span dir="rtl">إرسال طلب تسجيل الدخول</span></a><br />
+ 4.3 <span dir="rtl"><a href="#استجابةمتوقع">الاستجابة المتوقعة</a></span><br />
+ 4.4 <span dir="rtl"></span><a href="#استخدامتوكن"><span dir="rtl">استخدام الـ</span>
+Token</a><br />
+ 4.5 <span dir="rtl"><a href="#ملاحظاتمهمه">ملاحظات مهمة</a></span></p>
+</blockquote>
+<ol>
+<li>
+<p><a href="#عملياتاساسى"><strong><span dir="rtl">العمليات الأساسية (</span>CRUD<span dir="rtl">)
+    باستخدام</span> Postman</strong></a></p>
+<ol>
+<li>
+<p><a href="#جلببيانات1">GET <span dir="rtl">– جلب البيانات</span></a>
+    <span dir="rtl"></span></p>
+</li>
+<li>
+<p><a href="#انشاءبيانان2">POST <span dir="rtl">– إنشاء بيانات
+    جديدة</span></a></p>
+</li>
+<li>
+<p><a href="#تعديلبيان3">PUT <span dir="rtl">– تعديل كامل للبيانات</span></a></p>
+</li>
+<li>
+<p><a href="#تعديلجزئي4">PATCH <span dir="rtl">– تعديل جزئي
+    للبيانات</span></a></p>
+</li>
+<li>
+<p><a href="#حذفبيانات5">DELETE <span dir="rtl">– حذف البيانات</span></a></p>
+</li>
+</ol>
+</li>
+<li>
+<p><a href="#عاساسيةعريسورس"><strong><span dir="rtl">العمليات الأساسية</span>
+    <span dir="rtl">على</span> Resources</strong></a></p>
+<ol>
+<li>
+<p><a href="#جلب61">– GET <span dir="rtl">جلب الموارد</span></a></p>
+</li>
+<li>
+<p><a href="#جلب62">– GET <span dir="rtl">جلب مورد واحد</span></a></p>
+</li>
+</ol>
+</li>
+<li>
+<p><a href="#امثلة7"><strong><span dir="rtl">أمثلة باستخدام أمر</span> curl</strong></a></p>
+<ol>
+<li>
+<p><a href="#مصاد71"><span dir="rtl">المصادقة</span> (Authentication /
+    Login)</a></p>
+</li>
+<li>
+<p><a href="#مصا72"><span dir="rtl">جلب مستخدم و مستخدمين
+    (</span>GET<span dir="rtl">)</span></a></p>
+</li>
+<li>
+<p><a href="#مصا73"><span dir="rtl">إنشاء مستخدم
+    (</span>POST<span dir="rtl">)</span></a></p>
+</li>
+<li>
+<p><a href="#مصا74"><span dir="rtl">تعديل كامل
+    (</span>PUT<span dir="rtl">)</span></a></p>
+</li>
+<li>
+<p><a href="#مصا75"><span dir="rtl">تعديل جزئي
+    (</span>PATCH<span dir="rtl">)</span></a></p>
+</li>
+<li>
+<p><a href="#مصا76"><span dir="rtl">حذف
+    (</span>DELETE<span dir="rtl">)</span></a></p>
+</li>
+</ol>
+</li>
+<li>
+<p><a href="#معالجه8"><strong><span dir="rtl">معالجة الأخطاء</span> (Error
+    Handling)</strong></a></p>
+<ol>
+<li>
+<p><a href="#معال81"><span dir="rtl">مبادئ عامة</span></a></p>
+</li>
+<li>
+<p><a href="#معا82"><span dir="rtl">رموز الحالة الشائعة</span></a></p>
+</li>
+<li>
+<p><a href="#معا83"><span dir="rtl">مسار تشخيص سريع</span>
+    (Troubleshooting)</a></p>
+</li>
+<li>
+<p><a href="#افض84"><span dir="rtl">أفضل ممارسات التعامل مع الأخطاء في
+    العميل</span></a></p>
+</li>
+</ol>
+</li>
+<li>
+<p><a href="#تص9"><strong><span dir="rtl">التصفح
+    (</span>Pagination<span dir="rtl">)</span></strong></a></p>
+</li>
+<li>
+<p><a href="#ملاح10"><strong><span dir="rtl">الملاحق</span></strong></a></p>
+<ol>
+<li>
+<p><a href="#مصطلح101"><span dir="rtl">مصطلحات موحّدة</span></a></p>
+</li>
+<li>
+<p><a href="#روابط102"><span dir="rtl">روابط مفيدة</span></a><br />
+      <span dir="rtl"><br />
+    </span></p>
+</li>
+</ol>
+</li>
+</ol>
+<!-- -->
+
+<ol>
+<li><span id="مقدمة"
+    class="anchor"></span><strong><span dir="rtl">المقدمة</span></strong></li>
+</ol>
+<p><span dir="rtl">يُقدّم هذا الدليل شرحًا عمليًا لاستخدام واجهة برمجة
+التطبيقات التجريبية</span> Reqres.in<span dir="rtl">.</span></p>
+<p><span dir="rtl">يٌركّز الدليل على توضيح كيفية تنفيذ العمليات
+الأساسية</span> (CRUD) <span dir="rtl">وآلية المصادقة</span>
+(Authentication) <span dir="rtl">بالإضافة إلى معالجة الأخطاء</span>
+(Error Handling) <span dir="rtl">وتنظيم النتائج عبر التصفّح</span>
+(Pagination)<span dir="rtl">.</span></p>
+<p><span dir="rtl">الهدف من هذا الدليل هو تزويد المطوّر بخطوات واضحة وأمثلة
+عملية يمكن الاعتماد عليها لاختبار واجهات برمجة التطبيقات وفهم كيفية
+عملها</span>.</p>
+<p><strong><span dir="rtl">الفئات المستهدفة</span>:</strong></p>
+<ul>
+<li>
+<p><span dir="rtl">المطوّرون المبتدئون الراغبون في تعلّم مبادئ</span> REST
+  APIs<span dir="rtl">، وكذلك المطوّرون المتقدمون الذين يحتاجون إلى مرجع
+  سريع أو أمثلة عملية.</span></p>
+</li>
+<li>
+<p><span dir="rtl">فرق العمل التي تحتاج إلى مرجع تدريبي لتجربة وبناء
+  طلبات واجهة برمجة التطبيقات</span>.</p>
+</li>
+<li>
+<p><span id="متطلبات" class="anchor"></span><strong><span dir="rtl">المتطلبات
+    الأساسية</span></strong></p>
+</li>
+</ul>
+<p><span dir="rtl">قبل البدء في استخدام واجهة</span>
+Reqres.in<span dir="rtl">، ينبغي التأكد من توافر مجموعة من المتطلبات
+التي تُمكّن المطوّر من تنفيذ الطلبات</span> (Requests)
+<span dir="rtl">ومعالجة الاستجابات</span> (Responses)
+<span dir="rtl">بكفاءة</span>:</p>
+<ul>
+<li>
+<p><span dir="rtl">اتصال إنترنت مستقر لضمان تنفيذ جميع العمليات دون
+  انقطاع</span>.</p>
+</li>
+<li>
+<p><span dir="rtl">أداة لاختبار واجهات برمجة التطبيقات</span> (API
+  Testing Tool) <span dir="rtl">مثل</span> Postman <span dir="rtl">أو أي
+  بديل مكافئ يتيح إنشاء الطلبات، إضافة الرؤوس</span>
+  (Headers)<span dir="rtl">، إرسال البيانات عبر الجسم</span>
+  (Body)<span dir="rtl">، واستعراض الاستجابات</span>.</p>
+</li>
+</ul>
+<blockquote>
+<p><span dir="rtl">يمكن تحميل البرنامج من هنا:</span>
+<a href="https://www.postman.com/downloads/">Postman</a></p>
+</blockquote>
+<ul>
+<li>
+<p><span dir="rtl">يمكن الاستعانة بـ أداة سطر أوامر</span> (Command Line
+  Tool) <span dir="rtl">مثل</span> cURL <span dir="rtl">لاختبار الطلبات
+  من خلال الطرفية</span> (Terminal)<span dir="rtl">، بينما يكفي
+  للمبتدئين الاعتماد على أداة رسومية مثل</span> Postman
+  <span dir="rtl">في المراحل الأولى</span>.</p>
+</li>
+<li>
+<p><span dir="rtl">يُفضل الإلمام بأساسيات</span> REST
+  APIs<span dir="rtl">، بما في ذلك طرق</span> HTTP Methods
+  <span dir="rtl">، (</span>GET<span dir="rtl">،</span>POST
+  <span dir="rtl">،</span>PUT <span dir="rtl">،</span>
+  PATCH<span dir="rtl">،</span> DELETE <span dir="rtl">) والبنية العامة
+  للطلبات والاستجابات</span>.</p>
+</li>
+<li>
+<p><span dir="rtl">معرفة برموز حالة</span> (HTTP Status Codes) HTTP
+  <span dir="rtl">مثل</span>:</p>
+</li>
+<li>
+<p>200 <span dir="rtl">(تم التنفيذ بنجاح)</span></p>
+</li>
+<li>
+<p>201 <span dir="rtl">(تم إنشاء مورد جديد)</span></p>
+</li>
+<li>
+<p>400 <span dir="rtl">(طلب غير صالح)</span></p>
+</li>
+<li>
+<p>401 <span dir="rtl">(غير مصرح)</span></p>
+</li>
+<li>
+<p>404 <span dir="rtl">(المورد غير موجود)</span></p>
+</li>
+<li>
+<p><span dir="rtl">إلمام بكيفية التعامل مع</span> JSON (JavaScript Object
+  Notation)<span dir="rtl">، باعتبارها الصيغة الأساسية لتبادل البيانات
+  بين العميل والخادم.</span></p>
+</li>
+<li>
+<p><span id="نظرةعامه" class="anchor"></span> <strong><span dir="rtl">نظرة
+    عامة وطبيعة الواجهة</span> (Reqres.in)</strong></p>
+</li>
+</ul>
+<p>Reqres.in <span dir="rtl">هي واجهة برمجة تطبيقات تجريبية</span> (Mock
+API) <span dir="rtl">تتيح للمطوّرين اختبار مفاهيم</span> REST APIs
+<span dir="rtl">في بيئة آمنة ومجانية. صُمِّمت هذه الواجهة لمحاكاة سلوك
+أنظمة حقيقية دون الحاجة إلى إعداد خوادم أو قواعد بيانات</span>.</p>
+<p><strong><span dir="rtl">المزايا الرئيسية:</span></strong></p>
+<ul>
+<li>
+<p><span dir="rtl">مجانية بالكامل ولا تتطلّب إنشاء حساب</span>.</p>
+</li>
+<li>
+<p><span dir="rtl">تدعم العمليات الأساسية</span> (CRUD)
+  <span dir="rtl">عبر طرق</span> HTTP Methods<span dir="rtl">.</span></p>
+</li>
+<li>
+<p><span dir="rtl">تُوفّر بيانات جاهزة للتعامل مع كيانات مثل</span> Users
+  <span dir="rtl">و</span> Resources<span dir="rtl">.</span></p>
+</li>
+<li>
+<p><span dir="rtl">تدعم التصفّح</span> (Pagination) <span dir="rtl">وإرجاع
+  رموز الحالة القياسية</span> (HTTP Status
+  Codes)<span dir="rtl">.</span></p>
+</li>
+<li>
+<p><span dir="rtl">سهلة الاستخدام عبر أدوات رسومية مثل</span> Postman
+  <span dir="rtl">أو عبر الطرفية باستخدام</span>
+  cURL<span dir="rtl">.</span></p>
+</li>
+</ul>
+<p><span dir="rtl"><strong>الموقع الرسمي</strong>:</span> <a href="https://reqres.in">https://reqres.in</a></p>
+<p><span id="طبيعةوجهة" class="anchor"></span><strong><span dir="rtl">3.1</span>
+<span dir="rtl">طبيعة الواجهة التجريبية</span></strong></p>
+<ul>
+<li>
+<p>Reqres.in <span dir="rtl">ليست قاعدة بيانات فعلية؛ الغرض منها التدريب
+  والعرض فقط</span>.</p>
+</li>
+<li>
+<p><span dir="rtl">بعد تنفيذ</span> POST <span dir="rtl">وإنشاء
+  معرّف</span> (id)<span dir="rtl">، قد لا تتمكّن من جلب نفس العنصر لاحقًا
+  عبر</span> GET <span dir="rtl">قد تعود الاستجابة (404</span> Not
+  Found<span dir="rtl">).</span></p>
+</li>
+<li>
+<p><span dir="rtl">هذا السلوك متعمّد للتجارب وليس خللًا</span>.</p>
+</li>
+</ul>
+<p><strong><span dir="rtl">حدود الاستخدام</span> (Rate Limits)</strong></p>
+<ul>
+<li>
+<p><span dir="rtl">قد تُحاكي الواجهة قيودًا على المعدّل (429</span>Too Many
+  Requests <span dir="rtl">).</span></p>
+</li>
+<li>
+<p><span dir="rtl">عند ظهور 429، يُنصح بالانتظار فترة قصيرة ثم إعادة
+  المحاولة</span>.</p>
+</li>
+</ul>
+<p><span id="افضلممارسات"
+class="anchor"></span><strong><span dir="rtl">3.2</span> <span dir="rtl">أفضل
+ممارسات الاختبار</span></strong></p>
+<ul>
+<li>
+<p><span dir="rtl">استخدم معرّفات ثابتة في أمثلة القراءة مثل:</span> GET
+  /api/users/2)<span dir="rtl">).</span></p>
+</li>
+<li>
+<p><span dir="rtl">افصل بين اختبارات القراءة</span> (GET)
+  <span dir="rtl">والكتابة</span> (POST/PUT/PATCH/DELETE)
+  <span dir="rtl">لتتبّع النتائج بسهولة</span>.</p>
+</li>
+<li>
+<p><span dir="rtl">احتفظ بقوالب جاهزة للطلبات</span> (Postman Collection)
+  <span dir="rtl">لتسريع الاختبارات المتكررة</span>.</p>
+</li>
+<li>
+<p><span id="المصادقة" class="anchor"></span><strong><span dir="rtl">المصادقة
+    (</span>Authentication / Login<span dir="rtl">)</span></strong></p>
+</li>
+</ul>
+<p><strong>4</strong><span id="هدفمصادقة" class="anchor"></span><strong>.1
+<span dir="rtl">الهدف من المصادقة</span></strong><br />
+<span dir="rtl">التحقّق من هوية المستخدم والحصول على رمز أمني</span>
+(Token) <span dir="rtl">لاستخدامه في تفويض الطلبات اللاحقة</span>.</p>
+<p><span id="ارسالطلبتس" class="anchor"></span><strong>4.2 <span dir="rtl">إرسال
+طلب تسجيل الدخول</span></strong></p>
+<ul>
+<li>
+<p><span dir="rtl">الطريقة (</span>Method<span dir="rtl">):</span> POST</p>
+</li>
+<li>
+<p><span dir="rtl">المسار</span> /api/login :(Endpoint)
+  <span dir="rtl"></span></p>
+</li>
+<li>
+<p><span dir="rtl">الرؤوس</span> Content-Type: application/json
+  :(Headers)</p>
+</li>
+<li>
+<p><span dir="rtl">الجسم</span>
+  <span dir="rtl"></span>(Body)<span dir="rtl">:</span>JSON</p>
+</li>
+</ul>
+<p>{</p>
+<p>"email": "eve.holt@reqres.in",</p>
+<p>"password": "Ahmed1-Viper@1stPass"</p>
+<p>}</p>
+<p><img alt="" src="../media/image2.png" /></p>
+<p><span id="استجابةمتوقع" class="anchor"></span><strong>4.3
+<span dir="rtl">الاستجابة المتوقعة</span></strong></p>
+<ul>
+<li><strong><span dir="rtl">عند النجاح</span> :(OK) <span dir="rtl"></span>200
+  <span dir="rtl"></span></strong></li>
+</ul>
+<p><img alt="" src="../media/image3.png" /></p>
+<ul>
+<li>
+<p><strong><span dir="rtl">في حال الفشل</span>:</strong></p>
+</li>
+<li>
+<p><span dir="rtl">(بيانات ناقصة أو غير صحيحة)</span> 400 Bad Request</p>
+</li>
+<li>
+<p><span dir="rtl">(غير مصرح) 401</span> Unauthorized</p>
+</li>
+</ul>
+<p><span id="استخدامتوكن" class="anchor"></span><strong>4.4
+<span dir="rtl">استخدام الـ</span> Token <span dir="rtl">في الطلبات
+اللاحقة</span></strong></p>
+<ul>
+<li>
+<p><span dir="rtl">الطريقة العامة (إضافة يدويا فى الـ</span>
+  Headers<span dir="rtl">)</span></p>
+</li>
+<li>
+<p>Authorization: Bearer \&lt;token&gt;</p>
+</li>
+</ul>
+<p><img src="./media/image4.png" style="width:4.76852in;height:1.53704in"
+alt="C:\Users\engra\AppData\Local\Microsoft\Windows\INetCache\Content.Word\Screenshot 2025-09-24 220352.png" /></p>
+<ul>
+<li>
+<p><span dir="rtl">الطريقة البديلة فى</span> Postman
+  <span dir="rtl">(اختر طريقة واحدة اى تضع القيمه فى</span> Headers
+  <span dir="rtl">أو من</span> Auth Type<span dir="rtl">)</span></p>
+</li>
+<li>
+<p><span dir="rtl">عبر تبويب</span> Headers:</p>
+</li>
+</ul>
+<blockquote>
+<p>Authorization: Bearer \&lt;token&gt; <span dir="rtl"></span></p>
+</blockquote>
+<ul>
+<li><span dir="rtl">أو عبر تبويب</span> Auth:</li>
+</ul>
+<blockquote>
+<p>Type: Bearer Token <span dir="rtl"></span></p>
+<p><span dir="rtl">ثم إدخال قيمة الـ</span> Token
+<span dir="rtl">المستلمة</span>.</p>
+</blockquote>
+<p><img alt="" src="../media/image5.png" /></p>
+<p><span id="ملاحظاتمهمه" class="anchor"></span><strong>4.5
+<span dir="rtl">ملاحظات مهمة</span></strong></p>
+<ul>
+<li>
+<p><span dir="rtl">بما أنّ</span> Reqres.in <span dir="rtl">واجهة تجريبية،
+  بعض الطلبات قد تعمل دون الحاجة إلى</span>
+  Token<span dir="rtl">.</span></p>
+</li>
+<li>
+<p><span dir="rtl">يبقى الـ</span> Token <span dir="rtl">صالحًا ما لم
+  يتغيّر</span>.</p>
+</li>
+<li>
+<p><span dir="rtl">لا حاجة لإرسال</span> Body <span dir="rtl">مع
+  طلبات</span> Get<span dir="rtl">.</span></p>
+</li>
+<li>
+<p><strong><span dir="rtl">الطلبات تتطلّب إضافة</span> API Key
+  <span dir="rtl">في الهيدر</span>:<br />
+  x-api-key: reqres-free-v1</strong></p>
+</li>
+</ul>
+<p><img alt="" src="../media/image6.png" /></p>
+<ol>
+<li><span id="عملياتاساسى"
+    class="anchor"></span><strong><span dir="rtl">العمليات الأساسية</span>
+    (CRUD)<span dir="rtl">باستخدام برنامج</span> Postman</strong></li>
+</ol>
+<p><span dir="rtl">يوضّح هذا القسم كيفية تنفيذ العمليات الأساسية على الموارد
+(المستخدمين والمصادر) باستخدام واجهة</span> Reqres.in.<br />
+<span dir="rtl">كل عملية مرفقة بخطوات التنفيذ، مقتطف</span> JSON
+<span dir="rtl">مبسّط، وصورة</span> Postman <span dir="rtl">توضّح الطلب
+والاستجابة</span>.</p>
+<p><span id="جلببيانات1"
+class="anchor"></span><strong><span dir="rtl">5.1</span>GET
+<span dir="rtl"></span>– <span dir="rtl">جلب البيانات</span></strong></p>
+<p><span dir="rtl"><strong>الهدف:</strong> استدعاء بيانات من الخادم: إمّا قائمة
+المستخدمين أو مستخدم واحد</span>.</p>
+<p><strong>5.1.2 <span dir="rtl">جلب قائمة المستخدمين</span></strong></p>
+<ul>
+<li>
+<p>Method: GET</p>
+</li>
+<li>
+<p>Endpoint: /api/users?page=2</p>
+</li>
+<li>
+<p>Headers: Content-Type: application/json</p>
+</li>
+<li>
+<p><span dir="rtl">غير مطلوب</span>Body:</p>
+</li>
+</ul>
+<p><strong><span dir="rtl">استجابة متوقعة</span> :(OK)
+<span dir="rtl">200</span></strong></p>
+<p><img alt="" src="../media/image7.png" /></p>
+<p><strong>5.1.3 <span dir="rtl">جلب مستخدم واحد</span></strong></p>
+<ul>
+<li>
+<p>Method: GET</p>
+</li>
+<li>
+<p>Endpoint: /api/users/2</p>
+</li>
+<li>
+<p>Headers: Content-Type: application/json</p>
+</li>
+</ul>
+<p><strong><span dir="rtl">استجابة متوقعة</span> :(OK)
+<span dir="rtl">200</span></strong></p>
+<p><img alt="" src="../media/image8.png" /></p>
+<ul>
+<li><span dir="rtl">في حال لم يُعثر على المستخدم</span> 404 Not
+  Found<span dir="rtl">.</span></li>
+</ul>
+<p><span id="انشاءبيانان2" class="anchor"></span><strong>5.2
+<span dir="rtl"></span>POST <span dir="rtl"></span>–
+<span dir="rtl">إنشاء بيانات جديدة</span></strong></p>
+<p><span dir="rtl">الهدف: إرسال بيانات جديدة إلى الخادم لإنشاء
+مستخدم</span>.</p>
+<ul>
+<li>
+<p>Method: POST</p>
+</li>
+<li>
+<p>Endpoint: /api/users</p>
+</li>
+<li>
+<p>Headers: Content-Type: application/json</p>
+</li>
+</ul>
+<p>{</p>
+<p>"name": "Ahmed Mousa",</p>
+<p>"job": "Tech Writer"</p>
+<p>}</p>
+<p><strong><span dir="rtl">استجابة متوقعة</span> :(Created)
+<span dir="rtl">201</span></strong></p>
+<p><img alt="" src="../media/image9.png" /></p>
+<p><span id="تعديلبيان3" class="anchor"></span><strong>5.3
+<span dir="rtl"></span> – PUT<span dir="rtl">تعديل كامل
+للبيانات</span></strong></p>
+<p><span dir="rtl">الهدف: تحديث بيانات مستخدم بشكل كامل (استبدال القيم
+القديمة بقيم جديدة</span>).</p>
+<ul>
+<li>
+<p>Method: PUT</p>
+</li>
+<li>
+<p>Endpoint: /api/users/2</p>
+</li>
+</ul>
+<p>{</p>
+<p>"name": "Ahmed Hamdy",</p>
+<p>"job": "Tech Writer Lead"</p>
+<p>}</p>
+<p><strong><span dir="rtl">استجابة متوقعة</span> :(OK)
+<span dir="rtl">200</span></strong></p>
+<p><img alt="" src="../media/image10.png" /></p>
+<p><span id="تعديلجزئي4" class="anchor"></span><strong>5.4
+<span dir="rtl"></span>– PATCH <span dir="rtl">تعديل جزئي
+للبيانات</span></strong></p>
+<p><span dir="rtl">الهدف: تحديث جزء محدد من بيانات المستخدم</span>.</p>
+<ul>
+<li>
+<p>Method: PATCH</p>
+</li>
+<li>
+<p>Endpoint: /api/users/2</p>
+</li>
+</ul>
+<p>{</p>
+<p>"job": "Principal Technical Writer"</p>
+<p>}</p>
+<p><strong><span dir="rtl">استجابة متوقعة</span> :(OK)
+<span dir="rtl">200</span></strong></p>
+<p><img alt="" src="../media/image11.png" /></p>
+<p><span id="حذفبيانات5" class="anchor"></span><strong>5.5
+<span dir="rtl"></span>DELETE <span dir="rtl"></span>–
+<span dir="rtl">حذف البيانات</span></strong></p>
+<p><span dir="rtl">الهدف: حذف مستخدم بشكل نهائي</span>.</p>
+<ul>
+<li>
+<p>Method: DELETE</p>
+</li>
+<li>
+<p>Endpoint: /api/users/2</p>
+</li>
+<li>
+<p><span dir="rtl">غير مطلوب</span>Headers / Body:</p>
+</li>
+</ul>
+<p><strong><span dir="rtl">استجابة متوقعة</span> No Content
+<span dir="rtl">204</span></strong></p>
+<p><img src="./media/image12.png" style="width:4.79408in;height:2.81345in"
+alt="C:\Users\engra\AppData\Local\Microsoft\Windows\INetCache\Content.Word\Screenshot 2025-09-25 202115.png" /></p>
+<p><span id="عاساسيةعريسورس"
+class="anchor"></span><strong><span dir="rtl">6.</span>
+<span dir="rtl">العمليات الأساسية على</span> (Resources)</strong></p>
+<p><span id="جلب61" class="anchor"></span><strong>6.1 <span dir="rtl"></span>
+GET<span dir="rtl">جلب قائمة الموارد</span></strong></p>
+<p><span dir="rtl">الهدف: جلب قائمة</span> Resources <span dir="rtl">مع دعم
+التصفّح</span> (Pagination)<span dir="rtl">.</span></p>
+<p><span dir="rtl">تفاصيل الطلب</span></p>
+<ul>
+<li>
+<p>Method: GET</p>
+</li>
+<li>
+<p>Endpoint: /api/unknown?page=1</p>
+</li>
+<li>
+<p><span dir="rtl">غير مطلوبين</span> Headers &amp; Body:</p>
+</li>
+</ul>
+<p><strong><span dir="rtl">استجابة متوقعة</span> :(OK)
+<span dir="rtl">200</span></strong></p>
+<p><img alt="" src="../media/image13.png" /></p>
+<p><strong><span dir="rtl">ملاحظات مهمة</span></strong></p>
+<ul>
+<li>
+<p><span dir="rtl">مفاتيح التصفّح:</span> page, per_page, total,
+  total_pages</p>
+</li>
+<li>
+<p><span dir="rtl">يمكن تغيير الصفحة باستخدام معاملات الاستعلام</span>
+  (Query Parameters) <span dir="rtl">مثل</span> ?page=2</p>
+</li>
+</ul>
+<p><span id="جلب62" class="anchor"></span><strong>6.2 <span dir="rtl"></span>GET
+<span dir="rtl"></span>– <span dir="rtl">جلب مورد واحد</span></strong></p>
+<p><span dir="rtl">الهدف: جلب</span> Resource <span dir="rtl">واحد باستخدام
+المعرّف</span> (ID).</p>
+<p><span dir="rtl">تفاصيل الطلب</span></p>
+<ul>
+<li>
+<p>Method: GET</p>
+</li>
+<li>
+<p>Endpoint: /api/unknown/2</p>
+</li>
+<li>
+<p><span dir="rtl">غير مطلوبين</span> Headers &amp; Body:</p>
+</li>
+</ul>
+<p><strong><span dir="rtl">استجابة متوقعة</span> :(OK)
+<span dir="rtl">200</span></strong></p>
+<p><img alt="" src="../media/image14.png" /></p>
+<p><strong><span dir="rtl">في حال عدم العثور</span></strong></p>
+<ul>
+<li><strong>404 Not Found</strong> <span dir="rtl">عند استخدام معرّف غير موجود</span>.</li>
+</ul>
+<p><img alt="" src="../media/image15.png" /></p>
+<p><span id="امثلة7" class="anchor"></span><strong><span dir="rtl">7.</span>
+<span dir="rtl">أمثلة باستخدام أمر</span> curl</strong></p>
+<p><span dir="rtl">يمكن نسخ الأمر ثم لصقة فى سطر الأوامر</span>
+CMD<span dir="rtl">.</span></p>
+<p><span id="مصاد71" class="anchor"></span><strong><span dir="rtl">7.1</span>
+<span dir="rtl">المصادقة</span> (Authentication / Login)</strong></p>
+<p><strong>cURL:</strong></p>
+<p>curl -X POST "https://reqres.in/api/login" -H "Content-Type:
+application/json" -H "x-api-key: reqres-free-v1" -d
+"{\email\:\eve.holt@reqres.in\,\password\:\AhmedTheBest\}"</p>
+<p><img src="./media/image16.png" style="width:6.5in;height:1.05556in"
+alt="C:\Users\engra\AppData\Local\Microsoft\Windows\INetCache\Content.Word\Screenshot 2025-09-25 203950.png" /><strong><span dir="rtl">استجابة
+متوقعة</span> 200 :(OK)</strong></p>
+<p><span id="مصا72" class="anchor"></span><strong><span dir="rtl">7.2</span>GET
+<span dir="rtl"></span>– <span dir="rtl">جلب مستخدم</span></strong></p>
+<blockquote>
+<p><strong>cURL:</strong></p>
+<p><img src="./media/image17.png" style="width:6.49097in;height:0.96319in"
+alt="C:\Users\engra\AppData\Local\Microsoft\Windows\INetCache\Content.Word\Screenshot 2025-09-25 210044.png" />curl
+"https://reqres.in/api/users/2" -H "x-api-key: reqres-free-v1"</p>
+</blockquote>
+<p><strong><span dir="rtl">جلب المستخدمين</span></strong></p>
+<p><strong>cURL:</strong></p>
+<p>curl "https://reqres.in/api/users?page=2" -H "x-api-key: reqres-free-v1"</p>
+<p><img src="./media/image18.png" style="width:6.5in;height:1.76875in"
+alt="C:\Users\engra\AppData\Local\Microsoft\Windows\INetCache\Content.Word\Screenshot 2025-09-25 205809.png" /></p>
+<p><span id="مصا73" class="anchor"></span><strong><span dir="rtl">7.3</span>POST
+<span dir="rtl"></span>– <span dir="rtl">إنشاء مستخدم</span></strong></p>
+<p><strong>cURL:</strong></p>
+<p>curl -X POST "https://reqres.in/api/users" -H "Content-Type:
+application/json" -H "x-api-key: reqres-free-v1" -d
+"{\name\:\Ahmed\,\job\:\Developer\}"</p>
+<p><img src="./media/image19.png" style="width:6.49097in;height:0.83333in"
+alt="C:\Users\engra\AppData\Local\Microsoft\Windows\INetCache\Content.Word\Screenshot 2025-09-25 204807.png" /></p>
+<p><span id="مصا74" class="anchor"></span><strong><span dir="rtl">7.4</span>PUT
+<span dir="rtl"></span>– <span dir="rtl">تعديل كامل</span></strong></p>
+<p><strong>cURL:</strong></p>
+<p>curl -X PUT "https://reqres.in/api/users/2" -H "Content-Type:
+application/json" -H "x-api-key: reqres-free-v1" -d
+"{\name\:\Ahmed\,\job\:\Senior Dev\}"</p>
+<p><img src="./media/image20.png" style="width:6.49097in;height:0.81458in"
+alt="C:\Users\engra\AppData\Local\Microsoft\Windows\INetCache\Content.Word\Screenshot 2025-09-25 205018.png" /></p>
+<p><span id="مصا75" class="anchor"></span><strong><span dir="rtl">7.5</span>PATCH
+<span dir="rtl"></span>– <span dir="rtl">تعديل جزئي</span></strong></p>
+<p><strong>cURL:</strong></p>
+<p>curl -X PATCH "https://reqres.in/api/users/2" -H "Content-Type:
+application/json" -H "x-api-key: reqres-free-v1" -d "{\job\:\Tech
+Lead\}"</p>
+<p><img src="./media/image21.png" style="width:6.5in;height:0.79653in"
+alt="C:\Users\engra\AppData\Local\Microsoft\Windows\INetCache\Content.Word\Screenshot 2025-09-25 205337.png" /></p>
+<p><span id="مصا76"
+class="anchor"></span><strong><span dir="rtl">7.6</span>DELETE
+<span dir="rtl"></span>– <span dir="rtl">حذف</span></strong></p>
+<p><strong>cURL:</strong></p>
+<p>curl -X DELETE "https://reqres.in/api/users/2" -H "x-api-key:
+reqres-free-v1"</p>
+<p><strong><span dir="rtl">استجابة متوقعة:</span>204 No Content</strong>
+<img src="./media/image22.png" style="width:6.49097in;height:0.69444in"
+alt="C:\Users\engra\AppData\Local\Microsoft\Windows\INetCache\Content.Word\Screenshot 2025-09-25 205604.png" /></p>
+<p><strong><span dir="rtl">التفكيك والشرح</span>:</strong></p>
+<ol>
+<li>
+<p><strong>curl</strong></p>
+<ul>
+<li><span dir="rtl">هذا البرنامج هو أداة لعمل طلبات</span> HTTP (GET /
+  POST / PUT / PATCH / DELETE) <span dir="rtl"></span></li>
+</ul>
+</li>
+<li>
+<p><strong>-X POST</strong></p>
+<ul>
+<li>
+<p>-X <span dir="rtl">معناها: نوع الطريقة اللي هتستخدمه</span> (HTTP
+  Method) <span dir="rtl"></span></p>
+</li>
+<li>
+<p><span dir="rtl">هنا اخترنا</span> POST</p>
+</li>
+<li>
+<p><span dir="rtl">يمكن أن يكون</span>:</p>
+</li>
+<li>
+<p>GET <span dir="rtl">جلب بيانات</span></p>
+</li>
+<li>
+<p>POST <span dir="rtl">إرسال بيانات جديدة</span></p>
+</li>
+<li>
+<p>PUT <span dir="rtl">تحديث كامل</span></p>
+</li>
+<li>
+<p>PATCH <span dir="rtl">تحديث جزئي</span></p>
+</li>
+<li>
+<p>DELETE <span dir="rtl">حذف</span></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>"https://reqres.in/api/login"</strong></p>
+<ul>
+<li>
+<p><span dir="rtl">ده الـمسار
+  (</span>Endpoint<span dir="rtl">)</span> <span dir="rtl">اللي
+  هيتبعتله الطلب</span>.</p>
+</li>
+<li>
+<p><span dir="rtl">في المثال</span> /api/login
+  <span dir="rtl"></span></p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>-H "Content-Type: application/json"</strong></p>
+<ul>
+<li>
+<p>-H <span dir="rtl">معناها</span> Header <span dir="rtl"></span></p>
+</li>
+<li>
+<p><span dir="rtl">الـ</span> Header <span dir="rtl">بيتكتب كـ</span>
+  Name: Value</p>
+</li>
+<li>
+<p><span dir="rtl">هنا معناه إن جسم الطلب</span> (Body)
+  <span dir="rtl">مكتوب بصيغة</span> JSON</p>
+</li>
+<li>
+<p><span dir="rtl">مكان</span> Value <span dir="rtl">ممكن تحط أي قيمة
+  لازمة زي</span> application/xml <span dir="rtl">لو</span> XML</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>-H "x-api-key: reqres-free-v1"</strong></p>
+<ul>
+<li>
+<p><span dir="rtl">مثال على هيدر تاني</span>.</p>
+</li>
+<li>
+<p><span dir="rtl">هنا اسمه</span> x-api-key<span dir="rtl">،
+  وقيمته</span> reqres-free-v1</p>
+</li>
+<li>
+<p><span dir="rtl">أنت تغيّر الجزء ده لو عندك</span> API Key
+  <span dir="rtl">مختلف</span>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>-d
+    "{\email\:\your_email@example.com\,\password\:\your_password\}"</strong></p>
+<ul>
+<li>
+<p>-d <span dir="rtl">معناها</span>: <span dir="rtl">بيانات الجسم
+  اللي هيتبعت في الطلب.</span></p>
+</li>
+<li>
+<p><span dir="rtl">لازم يكون مكتوب بصيغة</span> JSON
+  <span dir="rtl">لو الـ</span> API <span dir="rtl">بيطلب
+  كده.</span></p>
+</li>
+<li>
+<p><span dir="rtl">في المثال</span>:</p>
+</li>
+<li>
+<p>email: <span dir="rtl">هنا تكتب إيميلك</span>.</p>
+</li>
+<li>
+<p>password: <span dir="rtl">هنا تكتب الباسورد</span>.</p>
+</li>
+<li>
+<p><span dir="rtl">لو الطلب ما يحتاجش</span> Body
+  <span dir="rtl">مثل</span> GET <span dir="rtl">لا تكتب</span> -d</p>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong><span dir="rtl">الخلاصة العملية</span>:</strong></p>
+<ul>
+<li>
+<p><strong>-X</strong> <span dir="rtl">هو نوع العملية</span> .(GET/POST/PUT/DELETE)
+  <span dir="rtl"></span></p>
+</li>
+<li>
+<p><strong>-H</strong> <span dir="rtl">هو بيانات</span> Header <span dir="rtl">دايما
+  اسم:قيمة</span>Name: Value <span dir="rtl">مثل</span> Content-Type
+  <span dir="rtl">أو</span> .Authorization <span dir="rtl"></span></p>
+</li>
+<li>
+<p><strong>-d</strong> <span dir="rtl">هو بيانات</span> Body <span dir="rtl">تبعتها في
+  شكل</span> .JSON</p>
+</li>
+</ul>
+<p><span id="معالجه8" class="anchor"></span><strong><span dir="rtl">8. معالجة
+الأخطاء</span> (Error Handling)</strong></p>
+<p><span id="معال81" class="anchor"></span><strong><span dir="rtl">8.1 مبادئ
+عامة</span></strong></p>
+<ul>
+<li>
+<p><span dir="rtl">تُرجِع الواجهة رموز حالة</span> (HTTP Status Codes)
+  <span dir="rtl">قياسية توضّح نتيجة الطلب</span>.</p>
+</li>
+<li>
+<p><span dir="rtl">تُعرَض تفاصيل الخطأ –عند توفّرها– في الاستجابة</span>
+  (Response) <span dir="rtl">بصيغة</span> JSON <span dir="rtl">ليسهل
+  قراءتها ومعالجتها برمجيًا</span>.</p>
+</li>
+<li>
+<p><span dir="rtl">يجب دائمًا قراءة الرمز والنص المصاحب له لتحديد الإجراء
+  المناسب (تصحيح الطلب، إعادة المحاولة، المصادقة… إلخ).</span></p>
+</li>
+</ul>
+<p><span id="معا82" class="anchor"></span><strong><span dir="rtl">8.2 رموز الحالة
+الشائعة</span></strong></p>
+<ul>
+<li>
+<p>200 OK <span dir="rtl">: نجاح الطلب</span> (GET / PUT / PATCH)</p>
+</li>
+<li>
+<p>201 Created<span dir="rtl">: تم إنشاء مورد جديد</span> (POST)
+  <span dir="rtl"></span></p>
+</li>
+<li>
+<p>204 No Content<span dir="rtl">: نجاح بدون جسم استجابة</span> (DELETE)</p>
+</li>
+<li>
+<p>400 Bad Request <span dir="rtl">: جسم أو صيغة طلب غير صحيحة</span>.</p>
+</li>
+<li>
+<p>401 Unauthorized <span dir="rtl">: نقص المصادقة أو</span> Token
+  <span dir="rtl">غير صالح</span>.</p>
+</li>
+<li>
+<p>404 Not Found <span dir="rtl">: المورد غير موجود مثل</span> (GET
+  /api/users/23) <span dir="rtl"></span></p>
+</li>
+<li>
+<p>429 Too Many Requests <span dir="rtl">: تجاوز حدّ المعدّل</span> (Rate
+  Limit) – <span dir="rtl">إن وُجد</span>.</p>
+</li>
+<li>
+<p>500 Internal Server Error<span dir="rtl">: خطأ عام في الخادم</span>.</p>
+</li>
+</ul>
+<p><span id="معا83" class="anchor"></span><strong><span dir="rtl">8.3 مسار تشخيص
+سريع</span> (Troubleshooting)</strong></p>
+<ul>
+<li>
+<p><span dir="rtl">تحقّق من</span> Method <span dir="rtl">و</span>Endpoint
+  <span dir="rtl">ومن الأخطاء الشائعة: كتابة</span> GET
+  <span dir="rtl">في شريط العنوان بدل اختياره من القائمة.</span></p>
+</li>
+<li>
+<p><span dir="rtl">راجع</span> Headers <span dir="rtl">المطلوبة
+  (مثل</span> Content-Type: application/json <span dir="rtl">و</span>
+  Authorization: Bearer \&lt;token&gt; <span dir="rtl">عند الحاجة)</span></p>
+</li>
+<li>
+<p><span dir="rtl">تأكّد من أن</span> Body <span dir="rtl">مكتوب
+  بصيغة</span> JSON <span dir="rtl">صحيحة، و وجود الحقول الإلزامية (مثل
+  البريد الإلكتروني/كلمة المرور في تسجيل الدخول</span>(</p>
+</li>
+<li>
+<p><span dir="rtl">جرّب بمعرّفات صحيحة: بعض المعرّفات في</span> Reqres.in
+  <span dir="rtl">ثابتة (مثل المستخدم 2)، بينما المعرّفات المُنشأة تجريبيًا
+  قد لا تبقى محفوظة</span>.</p>
+</li>
+<li>
+<p><span dir="rtl">راقب أولًا</span> Status Code <span dir="rtl">ثم نصّ
+  الخطأ لتحديد الإجراء المناسب (إعادة الإرسال، تعديل المدخلات،
+  إضافة</span> (Token</p>
+</li>
+</ul>
+<p><span id="افض84" class="anchor"></span><strong><span dir="rtl">8.4</span>
+<span dir="rtl">أفضل ممارسات التعامل مع الأخطاء في العميل</span>
+(Client)</strong></p>
+<ul>
+<li>
+<p><span dir="rtl">أظهر رسالة واضحة للمستخدم النهائي مشتقّة من</span>
+  Status Code<span dir="rtl">.</span></p>
+</li>
+<li>
+<p><span dir="rtl">لا تفترض نجاح الطلب؛ افحص الرمز دائمًا قبل استخدام
+  البيانات</span>.</p>
+</li>
+<li>
+<p><span dir="rtl">أعد المحاولة تلقائيًا فقط في الحالات المناسبة (مثل
+  مشاكل الشبكة، وليس عند</span> 400 Bad Request<span dir="rtl">)</span></p>
+</li>
+<li>
+<p><span dir="rtl">سجّل تفاصيل الخطأ</span> (Logging)
+  <span dir="rtl">لأغراض التشخيص والمتابعة</span>.</p>
+</li>
+</ul>
+<p><span id="تص9" class="anchor"></span><strong><span dir="rtl">9.</span>
+<span dir="rtl">التصفّح</span> (Pagination)</strong></p>
+<p><span dir="rtl">الهدف<strong>:</strong> تنظيم النتائج على صفحات متتالية لتقليل حجم
+الاستجابة وتسهيل العرض والتنقّل</span>.</p>
+<p><span dir="rtl">طريقة الاستخدام (قائمة المستخدمين مثالًا)</span></p>
+<ul>
+<li>
+<p>(Method): GET</p>
+</li>
+<li>
+<p>(Endpoint): /api/users?page=2</p>
+</li>
+<li>
+<p>(Query Parameters):</p>
+</li>
+<li>
+<p>page <span dir="rtl">لتحديد الصفحة المطلوبة</span>.</p>
+</li>
+</ul>
+<p><strong><span dir="rtl">الاستجابة المتوقّعة</span> 200 :(OK)</strong></p>
+<p>{</p>
+<p>"page": 2,</p>
+<p>"per_page": 6,</p>
+<p>"total": 12,</p>
+<p>"total_pages": 2,</p>
+<p>"data": [ /* <span dir="rtl">عناصر الصفحة</span> */ ]</p>
+<p>}</p>
+<p><strong><span dir="rtl">ملاحظات مهمة</span></strong></p>
+<ul>
+<li>
+<p><span dir="rtl">يمكن الانتقال بين الصفحات بتغيير قيمة</span>page
+  <span dir="rtl">مثل</span> ?page=1, ?page=2</p>
+</li>
+<li>
+<p><span dir="rtl">عدد العناصر في الصفحة</span> (per_page)
+  <span dir="rtl">ثابت في</span>Reqres.in <span dir="rtl">لأغراض العرض،
+  لكنه قد يختلف في واجهات حقيقية</span>.</p>
+</li>
+<li>
+<p><span dir="rtl">في نهاية الصفحات، قد تعود الاستجابة بحقل</span>data
+  <span dir="rtl">فارغ دون أن يكون ذلك خطأ</span>.</p>
+</li>
+</ul>
+<p><span id="ملاح10" class="anchor"></span><strong><span dir="rtl">10.
+الملاحق</span></strong></p>
+<p><span id="مصطلح101" class="anchor"></span><strong><span dir="rtl">10.1 مصطلحات
+موحّدة</span></strong></p>
+<ul>
+<li>
+<p>:Token <span dir="rtl">رمز أمني يُستخدم لتفويض الطلبات</span>.</p>
+</li>
+<li>
+<p>HTTP Methods: GET, POST, PUT, PATCH, DELETE.</p>
+</li>
+<li>
+<p>HTTP Status Codes: 200, 201, 204, 400, 401, 404, 429, 500.</p>
+</li>
+<li>
+<p>Requests / Responses <span dir="rtl">طلبات / استجابات</span>.</p>
+</li>
+<li>
+<p>JSON (JavaScript Object Notation) <span dir="rtl">صيغة لتبادل البيانات
+  بين العميل والخادم</span>.</p>
+</li>
+</ul>
+<p><span id="روابط102" class="anchor"></span><strong><span dir="rtl">10.2 روابط
+مفيدة</span></strong></p>
+<ul>
+<li>
+<p><strong><span dir="rtl">الموقع الرسمي:</span> <a href="https://reqres.in">https://reqres.in</a></strong></p>
+</li>
+<li>
+<p><strong><span dir="rtl">تحميل</span>:Postman <span dir="rtl"></span>
+  <a href="https://www.postman.com/downloads/">https://www.postman.com/downloads/</a></strong></p>
+</li>
+<li>
+<p><strong><span dir="rtl">شرح فلسفة</span> RESTful API
+  <span dir="rtl">بالعربية من حسوب:</span> <a href="https://academy.hsoub.com/programming/general/شرح-فلسفة-restful-تعلم-كيف-تبني-واجهات-rest-البرمجية-r635/">Hsoub in
+  Arabic</a></strong></p>
+</li>
+<li>
+<p><strong><span dir="rtl">تعلم اساسيات</span> :RESTful API
+  <span dir="rtl"></span><a href="https://restfulapi.net/">https://restfulapi.net<span dir="rtl">/</span></a></strong></p>
+</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
