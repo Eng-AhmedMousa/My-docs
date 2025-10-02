@@ -4,8 +4,15 @@ site_author: Ahmed Mousa
 
 theme:
   name: material
-  language: ar
-  direction: rtl
+  language: ar        # تعريب الواجهة
+  direction: rtl      # محاذاة يمين وتخطيط RTL
+  features:
+    - navigation.top
+    - navigation.tabs
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - toc.integrate
 
 nav:
   - الرئيسية: index.md
@@ -15,7 +22,20 @@ nav:
 plugins:
   - search
 
-extra:
-  analytics:
-    provider: google
-    property: G-5YZT4N3MPE
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - codehilite
+  - footnotes
+  - def_list
+  - attr_list
+
+# (اختياري) Google Analytics
+ extra:
+   analytics:
+     provider: google
+     property: G-5YZT4N3MPE
+
+   
