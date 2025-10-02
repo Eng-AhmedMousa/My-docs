@@ -1,0 +1,6 @@
+site_name: My Docs
+
+nav:
+  - الرئيسية: index.md
+  - الأسئلة الشائعة: API_Documentation_Reqres_in_AhmedMousa.md
+  - API: API_Documentation_Reqres_in_AhmedMousa.md
